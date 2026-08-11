@@ -177,32 +177,31 @@ The system is divided into the following functional modules:
 
 The LCD displays the real-time temperature and relative humidity values measured by the DHT11 sensor.
 
-![LCD Output](Results/LCD_Output.jpeg)
+![LCD Output](Results/1.LCD%20Output.jpeg)
 
 ### 2. GSM Commands
 
 The GSM module receives and processes authorized SMS commands for remote configuration and sensor information requests.
 
-![GSM Commands](Results/GSM_Commands.jpeg)
+![GSM Commands](Results/2.GSM%20Commands.jpeg)
 
 ### 3. GSM Alerts
 
 The system sends SMS alerts to the authorized user when abnormal conditions are detected.
 
-![GSM Alerts](Results/GSM_alerts.jpeg)
+![GSM Alerts](Results/3.GSM%20Alerts.jpeg)
 
 ### 4. Temperature and Humidity Alerts
 
 The system generates alerts when the configured temperature or humidity limits are exceeded, with RTC-based date and time information.
 
-![Temperature and Humidity Alerts](Results/temperature_humidity_alerts.jpeg)
+![Temperature and Humidity Alerts](Results/4.temperature_humidity_alerts.jpeg)
 
 ### 5. Final Hardware Setup
 
 The final hardware setup demonstrates the LPC2148-based system with the connected sensor, LCD, keypad, GSM module, and other peripherals.
 
-![Final Hardware Setup](Results/Final_Hardware_Setup.jpeg)
-
+![Final Hardware Setup](Results/5.Final%20Hardware%20Setup.jpeg)
 
  ## Applications
 
