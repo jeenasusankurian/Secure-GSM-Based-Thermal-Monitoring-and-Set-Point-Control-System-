@@ -1,1 +1,5 @@
-Project Documentation
+# Project Documentation
+
+## Block Diagram
+
+![System Block Diagram](block_diagram.png)
