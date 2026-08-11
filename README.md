@@ -4,17 +4,43 @@
 
 This project implements a Secure GSM-Based Thermal Monitoring and Set-Point Control System using the LPC2148 ARM7 microcontroller. The system continuously monitors temperature and humidity using the DHT11 sensor, compares the values with configurable set points, stores configuration data in EEPROM, and sends GSM SMS alerts with RTC timestamps when abnormal conditions occur. Password-protected SMS commands and keypad-based configuration provide secure local and remote control.
 
-## Features
+## Objectives
 
-- Real-time temperature and humidity monitoring
-- GSM SMS alert notification
-- Password-protected SMS commands
-- RTC-based timestamp logging
-- EEPROM storage for configuration
+- To continuously monitor temperature and relative humidity using the DHT11 sensor.
+- To compare the measured temperature and humidity values with predefined set-points.
+- To store set-points and other configuration parameters in the AT24C256 external EEPROM .
+- To display real-time temperature and humidity readings on the LCD.
+- To provide SMS-based alerts through the GSM  module when the measured values exceed the configured limits.
+- To provide local configuration of system parameters using the 4×4 matrix keypad.
+- To provide secure remote configuration through password-protected SMS commands.
+- To use the LPC2148 on-chip RTC to provide date and time information for alert messages.
+- To restrict remote configuration to an authorized mobile number.
+- To develop the complete monitoring and configuration system using the LPC2148 ARM7 microcontroller.
+--- 
+
+## Key Features
+
+- LPC2148 ARM7 microcontroller-based embedded system
+- Real-time temperature and relative humidity monitoring using the DHT11 sensor
+- 16×2 LCD display for sensor readings and user menus
+- Configurable temperature and humidity set-points
+- GSM M660A-based SMS alert notification
+- Password-protected remote configuration through SMS commands
+- Authorized mobile-number-based access for remote configuration
+- AT24C256 external EEPROM for non-volatile storage of configuration data
+- LPC2148 on-chip RTC for providing timestamps for alert messages
+- 4×4 matrix keypad for local user interaction and configuration
+- Password change through the local keypad interface
+- External interrupt-based local configuration
+- LED indication for system status and fault conditions
 - UART interrupt-based GSM communication
-- LCD display for live monitoring
-- Keypad-based local configuration
-- Secure remote monitoring and control
+- Embedded C firmware for complete system control and operation
+
+
+## Block Diagram
+
+![Project Block Diagram](Block_Diagram.png)
+
 
 ## Hardware Used
 
@@ -23,14 +49,123 @@ This project implements a Secure GSM-Based Thermal Monitoring and Set-Point Cont
 - GSM Module
 - AT24C256 EEPROM
 - 16×2 LCD
-- Matrix Keypad
+-  4x4 Matrix Keypad
 - LEDs
+- Switch
+- DB-9 Cable / USB-UART Converter
 
 ## Software Used
 
 - Embedded C
 - Keil uVision
 - Flash Magic
+
+## Communication Interfaces
+
+### UART
+
+UART is used for serial communication between the LPC2148 and the GSM module.
+
+**LPC2148 ↔ GSM Module**
+
+UART communication is handled using interrupts for GSM data transmission and reception.
+
+### I2C
+
+I2C is used for communication between the LPC2148 and the AT24C256 external EEPROM.
+
+**LPC2148 ↔ AT24C256 EEPROM**
+
+The EEPROM is used for non-volatile storage of system configuration data such as set-points, password, and authorized mobile number.
+
+### DHT11 Single-Wire Communication
+
+The DHT11 uses a single-wire digital communication protocol to transfer temperature and relative humidity data to the LPC2148.
+
+**LPC2148 ↔ DHT11**
+
+### GPIO
+
+GPIO pins are used to interface with peripherals such as the 16×2 LCD, 4×4 matrix keypad, and LEDs.
+
+**LPC2148 ↔ LCD / Keypad / LEDs** 
+
+## System Peripherals
+
+### Real-Time Clock (RTC)
+
+The LPC2148 on-chip Real-Time Clock (RTC) maintains the system date and time.
+
+The RTC is used to provide timestamps in alert SMS messages when abnormal temperature or humidity conditions are detected.
+
+### External Interrupt (EINT0)
+
+The LPC2148 external interrupt EINT0 is triggered by the configuration switch.
+
+It is used to enter the local configuration menu, where the user can change temperature and humidity set-points or the password through the LCD and 4×4 matrix keypad.
+
+## Working Principle
+
+1. When the system is powered ON, the LPC2148 initializes the required peripherals, including the LCD, keypad, UART, I2C interface, RTC, DHT11 interface, and external interrupt.
+
+2. The DHT11 sensor measures the surrounding temperature and relative humidity and transfers the digital sensor data to the LPC2148 using its single-wire communication protocol.
+
+3. The LPC2148 processes the received sensor data and displays the current temperature and relative humidity values on the LCD.
+
+4. The system stores the configured temperature and relative humidity set-points, password, and authorized mobile number in the AT24C256 EEPROM.
+
+5. The LPC2148 reads the configured set-points from the EEPROM and compares them with the current temperature and relative humidity values received from the DHT11.
+
+6. If the measured temperature or relative humidity exceeds its corresponding set-point, the system generates a fault indication using the LED and sends an alert SMS to the authorized mobile number through the GSM module.
+
+7. The LPC2148 on-chip RTC maintains the current date and time, which is used to provide a timestamp in the alert SMS.
+
+8. The system continuously checks for incoming SMS messages through the GSM module.
+
+9. When an SMS is received, the system verifies the sender's mobile number, password, and command format.
+
+10. If the SMS is received from the authorized mobile number and contains a valid command, the requested operation is performed.
+
+11. The supported remote SMS commands include:
+    - Changing the temperature set-point.
+    - Changing the authorized mobile number.
+    - Requesting the current temperature and humidity information.
+
+12. When a valid set-point or mobile-number modification command is received, the updated value is written to the corresponding EEPROM location.
+
+13. When a sensor-information request is received, the LPC2148 reads the current temperature and humidity from the DHT11 and sends the information to the authorized mobile number through the GSM module.
+
+14. If an SMS does not follow the required command format or fails authentication, it is rejected and the system continues monitoring.
+
+15. For local configuration, the user activates the configuration switch connected to the EINT0 external interrupt.
+
+16. The local configuration menu is displayed on the LCD, and the user uses the 4×4 matrix keypad to select the required operation.
+
+17. After successful password verification, the user can modify the temperature set-point, relative humidity set-point, or password.
+
+18. The modified configuration values are stored in the AT24C256 EEPROM so that they are retained after a power restart.
+
+19. The system continues monitoring temperature and relative humidity while handling authorized GSM commands and local configuration requests.
+
+ ## Applications
+
+The Secure GSM-Based Thermal Monitoring and Set-Point Control System can be used in environments where continuous temperature and humidity monitoring, local configuration, and remote SMS-based alert notification are required.
+
+- **Industrial Equipment Monitoring** – Monitoring temperature and humidity around industrial equipment and machinery.
+
+- **Server and Equipment Rooms** – Monitoring environmental conditions around servers, electrical panels, and other temperature-sensitive electronic equipment.
+
+- **Storage and Warehousing** – Monitoring temperature and humidity in storage areas where environmental conditions can affect stored materials.
+
+- **Laboratories and Controlled Environments** – Monitoring environmental conditions in laboratories and other controlled environments.
+
+- **Production Environments** – Monitoring temperature and humidity conditions in manufacturing and production areas.
+
+- **Greenhouses and Agricultural Environments** – Monitoring temperature and humidity conditions in controlled agricultural environments.
+
+- **Remote Safety Monitoring** – Sending SMS alerts to an authorized user when configured temperature or humidity limits are exceeded.
+
+- **Temperature-Sensitive Equipment Protection** – Providing early notification when environmental conditions exceed the configured limits.
 
 ## Project Modules
 
@@ -43,4 +178,4 @@ This project implements a Secure GSM-Based Thermal Monitoring and Set-Point Cont
 - Keypad
 - Interrupts
 - Password Authentication
-- SMS Communication
+after- SMS Communication
