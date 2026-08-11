@@ -183,13 +183,13 @@ The LCD displays the real-time temperature and relative humidity values measured
 
 The GSM module receives and processes authorized SMS commands for remote configuration and sensor information requests.
 
-![GSM Commands](Results/GSM Commands.jpeg)
+![GSM Commands](Results/GSM_Commands.jpeg)
 
 ### 3. GSM Alerts
 
 The system sends SMS alerts to the authorized user when abnormal conditions are detected.
 
-![GSM Alerts](Results/GSM_Alerts.jpeg)
+![GSM Alerts](Results/GSM_alerts.jpeg)
 
 ### 4. Temperature and Humidity Alerts
 
@@ -202,6 +202,7 @@ The system generates alerts when the configured temperature or humidity limits a
 The final hardware setup demonstrates the LPC2148-based system with the connected sensor, LCD, keypad, GSM module, and other peripherals.
 
 ![Final Hardware Setup](Results/Final_Hardware_Setup.jpeg)
+
 
  ## Applications
 
