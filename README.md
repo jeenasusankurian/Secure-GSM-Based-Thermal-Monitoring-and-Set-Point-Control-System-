@@ -149,7 +149,7 @@ It is used to enter the local configuration menu, where the user can change temp
 
 ## System Flow
 
-![System Flow](system_flow.png)
+![System Flow](System_Flow.png)
 
  ## Applications
 
