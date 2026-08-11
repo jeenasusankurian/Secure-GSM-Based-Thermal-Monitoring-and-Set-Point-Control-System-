@@ -171,6 +171,38 @@ The system is divided into the following functional modules:
 
 ![System Flow](System_Flow.png)
 
+## Results and Outputs
+
+### 1. LCD Output
+
+The LCD displays the real-time temperature and relative humidity values measured by the DHT11 sensor.
+
+![LCD Output](Results/LCD_Output.jpeg)
+
+### 2. GSM Commands
+
+The GSM module receives and processes authorized SMS commands for remote configuration and sensor information requests.
+
+![GSM Commands](Results/GSM Commands.jpeg)
+
+### 3. GSM Alerts
+
+The system sends SMS alerts to the authorized user when abnormal conditions are detected.
+
+![GSM Alerts](Results/GSM_Alerts.jpeg)
+
+### 4. Temperature and Humidity Alerts
+
+The system generates alerts when the configured temperature or humidity limits are exceeded, with RTC-based date and time information.
+
+![Temperature and Humidity Alerts](Results/temperature_humidity_alerts.jpeg)
+
+### 5. Final Hardware Setup
+
+The final hardware setup demonstrates the LPC2148-based system with the connected sensor, LCD, keypad, GSM module, and other peripherals.
+
+![Final Hardware Setup](Results/Final_Hardware_Setup.jpeg)
+
  ## Applications
 
 The Secure GSM-Based Thermal Monitoring and Set-Point Control System can be used in environments where continuous temperature and humidity monitoring, local configuration, and remote SMS-based alert notification are required.
@@ -233,15 +265,5 @@ The Secure GSM-Based Thermal Monitoring and Set-Point Control System can be used
 
 - **Data Logging and Analysis** – Add long-term storage of sensor readings and graphical analysis to identify environmental trends.
 
-## Project Modules
-
-- GSM
-- UART
-- RTC
-- EEPROM
-- DHT11
-- LCD
-- Keypad
-- Interrupts
-- Password Authentication
+cation
 after- SMS Communication
