@@ -167,6 +167,48 @@ The Secure GSM-Based Thermal Monitoring and Set-Point Control System can be used
 
 - **Temperature-Sensitive Equipment Protection** – Providing early notification when environmental conditions exceed the configured limits.
 
+## Advantages
+
+- **Real-Time Monitoring** – Continuously monitors temperature and relative humidity using the DHT11 sensor.
+
+- **Remote Alert Notification** – Sends SMS alerts to the authorized user when the configured temperature or humidity limits are exceeded.
+
+- **Secure Remote Access** – Password-protected SMS commands help prevent unauthorized modification of system settings.
+
+- **Authorized User Verification** – Remote commands are accepted only from the authorized mobile number.
+
+- **Local and Remote Configuration** – Allows configuration of set-points and password through the local keypad and authorized SMS commands.
+
+- **Non-Volatile Data Storage** – Stores important configuration data in the AT24C256 EEPROM, allowing the settings to be retained after power loss.
+
+- **Timestamped Alerts** – Uses the LPC2148 on-chip RTC to provide date and time information for alert messages.
+
+- **Simple User Interface** – Provides a 16×2 LCD and 4×4 matrix keypad for local monitoring and configuration.
+
+- **Independent Operation** – Performs monitoring and alert functions without requiring a computer during operation.
+
+- **Modular Design** – Separates peripheral and functional modules, making the firmware easier to understand, maintain, test, and modify.
+
+- **GSM-Based Remote Communication** – Enables remote monitoring and notification through SMS communication.
+
+- **Low-Cost Embedded Solution** – Uses a microcontroller-based architecture with commonly available embedded peripherals.
+
+## Limitations
+
+- **DHT11 Accuracy and Response Time** – The DHT11 provides suitable temperature and humidity measurements for basic monitoring, but its accuracy and response speed are limited compared with higher-end sensors.
+
+- **GSM Network Dependency** – SMS alerts and remote commands depend on GSM network availability and signal strength. Delays may occur when network connectivity is poor.                 
+
+## Future Enhancements
+
+- **IoT and Cloud Integration** – Integrate IoT connectivity and cloud storage for remote monitoring, data logging, and visualization of temperature and humidity data.
+
+- **Mobile Application** – Develop a mobile application for remote monitoring, configuration, and alert management.
+
+- **Advanced Sensors** – Replace the DHT11 with more accurate and reliable temperature and humidity sensors for improved measurement performance.
+
+- **Data Logging and Analysis** – Add long-term storage of sensor readings and graphical analysis to identify environmental trends.
+
 ## Project Modules
 
 - GSM
