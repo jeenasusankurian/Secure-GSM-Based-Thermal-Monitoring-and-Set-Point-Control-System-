@@ -147,6 +147,10 @@ It is used to enter the local configuration menu, where the user can change temp
 
 19. The system continues monitoring temperature and relative humidity while handling authorized GSM commands and local configuration requests.
 
+## System Flow
+
+![System Flow](system_flow.png)
+
  ## Applications
 
 The Secure GSM-Based Thermal Monitoring and Set-Point Control System can be used in environments where continuous temperature and humidity monitoring, local configuration, and remote SMS-based alert notification are required.
