@@ -147,6 +147,26 @@ It is used to enter the local configuration menu, where the user can change temp
 
 19. The system continues monitoring temperature and relative humidity while handling authorized GSM commands and local configuration requests.
 
+## System Modules
+
+The system is divided into the following functional modules:
+
+- **Temperature and Humidity Monitoring Module** – Reads temperature and relative humidity from the DHT11 sensor and provides the measured values to the LPC2148 for processing.
+
+- **Display Module** – Displays temperature, relative humidity, menus, configuration options, and system status information on the LCD.
+
+- **GSM Communication Module** – Handles SMS transmission and reception through the GSM M660A module using UART communication.
+
+- **EEPROM Configuration Module** – Stores and retrieves temperature and humidity set-points, password, and authorized mobile number using the AT24C256 EEPROM through I2C communication.
+
+- **Local Configuration Module** – Provides password-protected local configuration using the EINT0 switch, LCD, and 4×4 matrix keypad.
+
+- **Security and Authentication Module** – Verifies the authorized mobile number, password, and SMS command format before processing remote configuration commands.
+
+- **RTC Module** – Maintains date and time information for timestamping alert SMS messages.
+
+- **Alert and Indication Module** – Provides fault indication and generates SMS alerts when configured temperature or humidity limits are exceeded.
+
 ## System Flow
 
 ![System Flow](System_Flow.png)
