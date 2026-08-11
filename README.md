@@ -8,9 +8,9 @@ This project implements a Secure GSM-Based Thermal Monitoring and Set-Point Cont
 
 - To continuously monitor temperature and relative humidity using the DHT11 sensor.
 - To compare the measured temperature and humidity values with predefined set-points.
-- To store set-points and other configuration parameters in the AT24C256 external EEPROM .
+- To store set-points and other configuration parameters in the AT24C256 external EEPROM.
 - To display real-time temperature and humidity readings on the LCD.
-- To provide SMS-based alerts through the GSM  module when the measured values exceed the configured limits.
+- To provide SMS-based alerts through the GSM module when the measured values exceed the configured limits.
 - To provide local configuration of system parameters using the 4×4 matrix keypad.
 - To provide secure remote configuration through password-protected SMS commands.
 - To use the LPC2148 on-chip RTC to provide date and time information for alert messages.
@@ -49,7 +49,7 @@ This project implements a Secure GSM-Based Thermal Monitoring and Set-Point Cont
 - GSM Module
 - AT24C256 EEPROM
 - 16×2 LCD
--  4x4 Matrix Keypad
+- 4×4 Matrix Keypad
 - LEDs
 - Switch
 - DB-9 Cable / USB-UART Converter
@@ -155,7 +155,7 @@ The system is divided into the following functional modules:
 
 - **Display Module** – Displays temperature, relative humidity, menus, configuration options, and system status information on the LCD.
 
-- **GSM Communication Module** – Handles SMS transmission and reception through the GSM M660A module using UART communication.
+- **GSM Communication Module** – Handles SMS transmission and reception through the GSM M660A module using UART0 communication.
 
 - **EEPROM Configuration Module** – Stores and retrieves temperature and humidity set-points, password, and authorized mobile number using the AT24C256 EEPROM through I2C communication.
 
@@ -166,7 +166,6 @@ The system is divided into the following functional modules:
 - **RTC Module** – Maintains date and time information for timestamping alert SMS messages.
 
 - **Alert and Indication Module** – Provides fault indication and generates SMS alerts when configured temperature or humidity limits are exceeded.
-
 ## System Flow
 
 ![System Flow](System_Flow.png)
@@ -203,7 +202,7 @@ The final hardware setup demonstrates the LPC2148-based system with the connecte
 
 ![Final Hardware Setup](Results/5.Final%20Hardware%20Setup.jpeg)
 
- ## Applications
+## Applications
 
 The Secure GSM-Based Thermal Monitoring and Set-Point Control System can be used in environments where continuous temperature and humidity monitoring, local configuration, and remote SMS-based alert notification are required.
 
@@ -252,9 +251,9 @@ The Secure GSM-Based Thermal Monitoring and Set-Point Control System can be used
 ## Limitations
 
 - **DHT11 Accuracy and Response Time** – The DHT11 provides suitable temperature and humidity measurements for basic monitoring, but its accuracy and response speed are limited compared with higher-end sensors.
+- **GSM Network Dependency** – SMS alerts and remote commands depend on GSM network availability and signal strength. Delays may occur when network connectivity is poor.
 
-- **GSM Network Dependency** – SMS alerts and remote commands depend on GSM network availability and signal strength. Delays may occur when network connectivity is poor.                 
-
+  
 ## Future Enhancements
 
 - **IoT and Cloud Integration** – Integrate IoT connectivity and cloud storage for remote monitoring, data logging, and visualization of temperature and humidity data.
@@ -265,5 +264,11 @@ The Secure GSM-Based Thermal Monitoring and Set-Point Control System can be used
 
 - **Data Logging and Analysis** – Add long-term storage of sensor readings and graphical analysis to identify environmental trends.
 
-cation
-after- SMS Communication
+
+## Conclusion
+
+The Secure GSM-Based Thermal Monitoring and Set-Point Control System using LPC2148 provides an embedded solution for temperature and humidity monitoring with local and remote configuration capabilities. The system integrates DHT11, LCD, AT24C256 EEPROM, GSM, keypad, RTC, and external interrupt functionalities to provide sensor monitoring, configurable set-points, secure SMS-based access, and alert notification. The project demonstrates practical implementation of Embedded C, peripheral interfacing, UART and I2C communication, sensor interfacing, EEPROM data storage, RTC, and GSM-based remote monitoring.
+
+## Author
+
+**Jeena Susan Kurian**
